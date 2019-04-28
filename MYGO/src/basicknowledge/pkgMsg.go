@@ -20,4 +20,14 @@ package basicknowledge
 
 //一个推荐的go学习博客：https://www.cnblogs.com/liuzhongchao/category/1226355.html
 
+//李文周老师的博客地址：https://www.liwenzhou.com
+
+// go 常用命令
+// 1. go run：直接运行程序／编译且运行，不生成二进制文件
+// 2. go build：测试编译，检查是否有编译错误／ 以当前所在“包”命名，生成“包名“二进制文件
+// 3. go fmt：格式化源码
+// 4. go install：编译包文件并编译整个程序／生成二进制文件到$GOPATH/src目录下
+// 5. go test：运行测试文件
+// 6. go doc：查询文档，godoc -http=:6060，然后在本地访问：localhost:6060，启动本地文档
+
 //go 的工具不完善 比如切片slice 没有delete方法，删除一个元素比较笨拙

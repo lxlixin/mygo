@@ -5,6 +5,5 @@ import (
 )
 
 func main() {
-	basicknowledge.Test111()
-
+	basicknowledge.Myfun()
 }

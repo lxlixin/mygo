@@ -16,11 +16,12 @@ import "fmt"
 //复合类型
 //指针（pointer）
 //数组（array）- 值类型 赋值任然是值语义，数组的长度也是数组的一部分
-//切片（slice）-值类型 赋值仍然是值语义
+//切片（slice）-值类型 赋值仍然是值语义，切片的主体（属性）是一个数组的指针，and 使用切片的时候有语法糖，自动调用切片的指针
 //字典（map）-引用类型
 //通道（chan）-引用类型
-//结构体（struct）
-//接口（interface）
+//结构体（struct）-值类型
+//接口（interface）－引用类型
+//函数 function －引用类型
 
 func Helloworld() {
 	// var helloworld1 int

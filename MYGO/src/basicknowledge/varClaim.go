@@ -39,11 +39,30 @@ func getName() (firstName, lastName, nickName string) {
 //每次出现一次iota换行 ，counter会增加1，直到再次出现const iota会被重置为0
 //go 语言的常量是无类型的，只要这个常量在相应类型的值域范围内，就可以赋值给该类型的变量
 const Pi = 3.1415926
-const KB = 1024
 
-// const {
-// 	MB KB<<iota*10
-// 	GB
-// }
+// 存储单位
+const (
+	_  = iota
+	KB = 1 << (iota * 10)
+	MB
+	GB
+	TB
+	PB
+	EB
+	ZB
+	YB
+)
 
 //枚举，枚举指一系列相关常量
+
+//周 的枚举类型
+const (
+	// 第一个表达式不可省略
+	MONDAY = iota
+	TUESDAY
+	WEDNESDAY
+	THURSDAY
+	FRIDAY
+	SATURDAY
+	SUNDAY
+)
