@@ -22,6 +22,8 @@ package basicknowledge
 
 //李文周老师的博客地址：https://www.liwenzhou.com
 
+//2019 go https://github.com/gopherchina/conference/tree/master/2019
+
 // go 常用命令
 // 1. go run：直接运行程序／编译且运行，不生成二进制文件
 // 2. go build：测试编译，检查是否有编译错误／ 以当前所在“包”命名，生成“包名“二进制文件

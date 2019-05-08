@@ -34,7 +34,9 @@ func NewHub() *Hub {
 		cs: make(map[string][]string),
 	}
 }
-func main() {
+
+//TestHub is a test function
+func TestHub() {
 	hub := NewHub()
 	if cs, ok := hub.cs["test"]; ok {
 		fmt.Printf("cs type is %T\n", cs)

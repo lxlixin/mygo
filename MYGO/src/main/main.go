@@ -1,9 +1,8 @@
 package main
 
-import (
-	"basicknowledge"
-)
+import "homework"
 
 func main() {
-	basicknowledge.Myfun()
+	mylog := homework.Log{Fname: "main"}
+	mylog.Debug("这是一个bug信息！难道是覆盖写入么")
 }
