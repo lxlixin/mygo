@@ -18,12 +18,6 @@ package basicknowledge
 // java属于解释型语言，虽然Java在程序运行之前也有一个编译过程，但是并不是将程序编译成机器语言，而是将它翻译成字节码（可以理解为一个中间语言.class）
 // java 跨平台使用的是虚拟机。go 没有跨平台，不是一次编译处处使用。
 
-//一个推荐的go学习博客：https://www.cnblogs.com/liuzhongchao/category/1226355.html
-
-//李文周老师的博客地址：https://www.liwenzhou.com
-
-//2019 go https://github.com/gopherchina/conference/tree/master/2019
-
 // go 常用命令
 // 1. go run：直接运行程序／编译且运行，不生成二进制文件
 // 2. go build：测试编译，检查是否有编译错误／ 以当前所在“包”命名，生成“包名“二进制文件
@@ -33,3 +27,23 @@ package basicknowledge
 // 6. go doc：查询文档，godoc -http=:6060，然后在本地访问：localhost:6060，启动本地文档
 
 //go 的工具不完善 比如切片slice 没有delete方法，删除一个元素比较笨拙
+
+//一个推荐的go学习博客：https://www.cnblogs.com/liuzhongchao/category/1226355.html
+
+//李文周老师的博客地址：https://www.liwenzhou.com
+
+//2019 go https://github.com/gopherchina/conference/tree/master/2019
+
+// .Go Web轻量级框架Gin学习系列：HTTP请求日志 https://juejin.im/post/5cc84cfa51882562457fe311
+
+// 协程初步讨论 https://segmentfault.com/a/1190000019114754
+
+// go框架-beego基础 https://c.isme.pub/2019/03/25/go-beego/
+
+// 在 struct 內的 pointers 跟 values 差异 https://blog.wu-boy.com/2019/05/what-is-different-between-pointer-and-value-in-golang/
+
+// 从零开始搭建创业公司后台技术栈 https://mp.weixin.qq.com/s/jQ0X66DK1DDW9DFlyd9bdw
+
+// Golang并发模型：轻松入门流水线模型 https://mp.weixin.qq.com/s?__biz=Mzg3MTA0NDQ1OQ==&mid=2247483671&idx=1&sn=1706ffa6deee44a367c34ef84448f55f&scene=21#wechat_redirect
+
+// Golang并发模型：轻松入门流水线FAN模式https://mp.weixin.qq.com/s?__biz=Mzg3MTA0NDQ1OQ==&mid=2247483680&idx=1&sn=de463ebbd088c0acf6c2f0b5f179f38d&scene=21#wechat_redirect
