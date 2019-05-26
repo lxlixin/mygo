@@ -32,4 +32,5 @@ func getLogType(logType int) string {
 type Logger interface {
 	Log(logType int, format string, args ...interface{}) error
 	Close() error
+	Start() error
 }

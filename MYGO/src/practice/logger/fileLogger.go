@@ -85,7 +85,10 @@ func (f *FileLogger) Log(logType int, format string, args ...interface{}) (err e
 
 func logMsg(logFile *os.File, content, fileName, logDate string) (newFile *os.File, newLogDate string, err error) {
 	//判断文件的大小是否达到上限
-	fileInfo, _ := logFile.Stat()
+	fileInfo, err := logFile.Stat()
+	if err != nil {
+		panic(err)
+	}
 	fileSize := fileInfo.Size()
 	dateStr := time.Now().Format("2006-01-02")
 	if fileSize > maxFileSize || dateStr != logDate {
@@ -110,5 +113,10 @@ func logMsg(logFile *os.File, content, fileName, logDate string) (newFile *os.Fi
 func (f *FileLogger) Close() (err error) {
 	err = f.logFile.Close()
 	err = f.errFile.Close()
+	return
+}
+
+//Start 关闭
+func (f *FileLogger) Start() (err error) {
 	return
 }

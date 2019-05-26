@@ -15,6 +15,7 @@ import (
 //一个是byte(实际上是unit8的别名)，代表单个字节的值，所以如果是字符串，只能正确表示ASCII码，超过ASCII范围的，都会出现乱码；
 //另一个是rune，代表单个Unicode字符
 //UTF-8是对Unicode编码规范的一种实现，实现根据变长存储
+// golang中string底层是通过byte数组实现的。中文字符在unicode下占2个字节，在utf-8编码下占3个字节，而golang默认编码正好是utf-8。
 
 //通过制定数据类型和元素个数来声明数组
 var array [5]int

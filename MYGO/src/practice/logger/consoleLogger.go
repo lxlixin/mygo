@@ -48,3 +48,8 @@ func (c ConsoleLogger) Log(logType int, format string, args ...interface{}) (err
 func (c ConsoleLogger) Close() (err error) {
 	return
 }
+
+//Start 关闭
+func (c ConsoleLogger) Start() (err error) {
+	return
+}
