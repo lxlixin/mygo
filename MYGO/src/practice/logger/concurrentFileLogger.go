@@ -46,7 +46,7 @@ type ConcurrentFileLogger struct {
 	logDate     string
 	logFile     *os.File
 	errFile     *os.File
-	logBacket   chan *LoggerContent
+	logBacket   chan *LoggerContent //使用指针，否则开销会变大
 	lock        *sync.Mutex
 }
 
@@ -131,6 +131,7 @@ func (f *ConcurrentFileLogger) realLog() (err error) {
 func (f *ConcurrentFileLogger) Close() (err error) {
 	err = f.logFile.Close()
 	err = f.errFile.Close()
+	close(f.logBacket)
 	return
 }
 

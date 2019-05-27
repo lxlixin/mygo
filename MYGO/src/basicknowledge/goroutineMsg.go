@@ -42,6 +42,26 @@ func Factory() {
 // 通道可以执行关闭操作，从一个关闭的通道中取值，可以去到对应类型的剩余值，直到去到对应的零值，往关闭的通道中放值会报错
 // 无缓冲通道和缓冲通道
 
+//无缓冲channel 示例，w无缓冲通道，必须有接收才可以发送，否则一直阻塞
+func aha1() {
+	ch := make(chan int)
+	// 无缓冲区的通道，没有任何接收，100就发送不出去
+	ch <- 100
+	fmt.Println("此时的ch是无缓冲区的，将会发生死锁，因为没有地方接收")
+}
+
+func aha2() {
+	ch := make(chan int)
+	//此处有接收者，并且是异步的，所以不会阻塞
+	f := func(x chan int) {
+		<-ch
+	}
+	go f(ch)
+	ch <- 100
+}
+
+//有缓冲通道，超过容量就会阻塞
+
 //ChanFunc channel 的一些基本操作
 func ChanFunc() {
 	// 定义并初始化通道
@@ -110,7 +130,24 @@ func ChannerTest() {
 	}
 }
 
-// select 多路复用
+//单项通道，只能读或者只能写，多用于函数参数，便于阅读，便于管理，便于控制
+
+// select 多路复用，同一时间，可以对多个通道进行发送和接收操作
+func aha3() {
+	ch1 := make(chan int, 10)
+	ch2 := make(chan int, 10)
+
+	//如果case1和case2都满足条件，则随机执行一个，跟代码顺序无关
+	//select 只能执行一次，所以一般跟for配合使用
+	select {
+	case ch1 <- 100:
+		fmt.Println("111")
+	case <-ch2:
+		fmt.Println("222")
+	default:
+		fmt.Println("ahahhahaha !")
+	}
+}
 
 // TestSelect 通过select 打印10之内的偶数
 func TestSelect() {
@@ -124,7 +161,7 @@ func TestSelect() {
 	}
 }
 
-//单项通道，只能读或者只能写，便于阅读，便于管理，便于控制
+//通道是线程安全的
 
 // 并发控制，锁
 // 数据竞争
@@ -132,3 +169,20 @@ func TestSelect() {
 // 加锁 lock.Lock()
 // 释放锁 lock.Unlock()
 // 定义一个 读写互斥锁 var sync.RWMutex，读比写频率高很多的时候，可以使用读写锁
+
+//sync.Map  原生的Map不是并发安全的，并发场景下推荐sync.Map
+// sync.Once，闭包的应用
+func aha4(x int) func() {
+	return func() {
+		fmt.Printf("因为once的do方法中的参数不能有参数，使用闭包可以间接设置参数:%d", x)
+	}
+}
+
+func aha5() {
+	f := aha4(994903)
+	o := sync.Once{}
+	o.Do(f)
+}
+
+// 原子操作，go语言中的基础类型，共语言提供了sync/atomic，为整数类型提供了原子操作
+// eg: i++ 不是并发安全的，使用atomic.AddInt64()就是线程安全的，自己使用lock也可以实现，但是性能低于内置的原子操作

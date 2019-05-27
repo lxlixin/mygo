@@ -28,6 +28,8 @@ package basicknowledge
 
 //go 的工具不完善 比如切片slice 没有delete方法，删除一个元素比较笨拙
 
+// 标准库中文文档：https://studygolang.com/pkgdoc
+
 //一个推荐的go学习博客：https://www.cnblogs.com/liuzhongchao/category/1226355.html
 
 //李文周老师的博客地址：https://www.liwenzhou.com
